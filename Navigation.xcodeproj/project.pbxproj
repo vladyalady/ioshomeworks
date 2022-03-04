@@ -14,6 +14,8 @@
 		9FAB945927D21E9700A1E8C0 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB945827D21E9700A1E8C0 /* FeedViewController.swift */; };
 		9FAB945B27D21EA000A1E8C0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB945A27D21EA000A1E8C0 /* ProfileViewController.swift */; };
 		9FAB945D27D2236E00A1E8C0 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB945C27D2236E00A1E8C0 /* PostViewController.swift */; };
+		9FAB945F27D2242000A1E8C0 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB945E27D2242000A1E8C0 /* Post.swift */; };
+		9FAB946127D2262F00A1E8C0 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAB946027D2262F00A1E8C0 /* InfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		9FAB945827D21E9700A1E8C0 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		9FAB945A27D21EA000A1E8C0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9FAB945C27D2236E00A1E8C0 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		9FAB945E27D2242000A1E8C0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		9FAB946027D2262F00A1E8C0 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +63,10 @@
 			isa = PBXGroup;
 			children = (
 				9FAB944427D21B1E00A1E8C0 /* AppDelegate.swift */,
+				9FAB945E27D2242000A1E8C0 /* Post.swift */,
 				9FAB945827D21E9700A1E8C0 /* FeedViewController.swift */,
 				9FAB945C27D2236E00A1E8C0 /* PostViewController.swift */,
+				9FAB946027D2262F00A1E8C0 /* InfoViewController.swift */,
 				9FAB945A27D21EA000A1E8C0 /* ProfileViewController.swift */,
 				9FAB944A27D21B1E00A1E8C0 /* Main.storyboard */,
 				9FAB944D27D21B1F00A1E8C0 /* Assets.xcassets */,
@@ -145,6 +151,8 @@
 				9FAB945B27D21EA000A1E8C0 /* ProfileViewController.swift in Sources */,
 				9FAB945927D21E9700A1E8C0 /* FeedViewController.swift in Sources */,
 				9FAB944527D21B1E00A1E8C0 /* AppDelegate.swift in Sources */,
+				9FAB946127D2262F00A1E8C0 /* InfoViewController.swift in Sources */,
+				9FAB945F27D2242000A1E8C0 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
