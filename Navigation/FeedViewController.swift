@@ -33,7 +33,14 @@ class FeedViewController: UIViewController {
         postButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         postButton.setTitle("Check post", for: .normal)
         postButton.setTitleColor(.white, for: .normal)
-        postButton.backgroundColor = .blue
+        postButton.backgroundColor = .systemPink
+        postButton.layer.cornerRadius = 20
+        postButton.layer.cornerRadius = 14
+        postButton.layer.shadowColor = UIColor.black.cgColor
+        postButton.layer.shadowRadius = 4
+        postButton.layer.shadowOpacity = 0.7
+        postButton.layer.shadowOffset.height = 4
+        postButton.layer.shadowOffset.width = 4
 
 
         view.addSubview(postButton)

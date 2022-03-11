@@ -22,6 +22,13 @@ class InfoViewController: UIViewController {
         alertButton.backgroundColor = .systemMint
         alertButton.translatesAutoresizingMaskIntoConstraints = false
         alertButton.addTarget(self, action: #selector(pressAlertButton), for: .touchUpInside)
+        alertButton.layer.cornerRadius = 20
+        alertButton.layer.cornerRadius = 14
+        alertButton.layer.shadowColor = UIColor.black.cgColor
+        alertButton.layer.shadowRadius = 4
+        alertButton.layer.shadowOpacity = 0.7
+        alertButton.layer.shadowOffset.height = 4
+        alertButton.layer.shadowOffset.width = 4
 
         view.addSubview(alertButton)
 
