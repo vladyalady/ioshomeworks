@@ -9,9 +9,12 @@ import UIKit
 
 class ProfileHeaderView: UIView {
 
+    private var statusText: String = ""
+
     override init(frame: CGRect) {
+
         super.init(frame: frame)
-        self.translatesAutoresizingMaskIntoConstraints = false
+        setupView()
         setAllConstreints()
     }
 
@@ -19,20 +22,20 @@ class ProfileHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    let userImage: UIImageView = {
+    private let userImage: UIImageView = {
 
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "zxc")
         image.layer.borderWidth = 3
         image.layer.borderColor = UIColor.white.cgColor
-        image.layer.cornerRadius = 50
+        image.layer.cornerRadius = 65
         image.clipsToBounds = true
 
         return image
     }()
 
-    let userLabel: UILabel = {
+    private let userLabel: UILabel = {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +46,7 @@ class ProfileHeaderView: UIView {
         return label
     }()
 
-    let statusLabel: UILabel = {
+    private let statusLabel: UILabel = {
 
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +58,7 @@ class ProfileHeaderView: UIView {
     }()
     
 
-    let showButton: UIButton = {
+    private let showButton: UIButton = {
 
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -73,45 +76,69 @@ class ProfileHeaderView: UIView {
         return button
     }()
 
-    
+    private let statusTextField: UITextField = {
+
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.addTarget(self, action: #selector(pressTextField), for: .editingChanged)
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.backgroundColor = .white
+        textField.layer.cornerRadius = 12
+        textField.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        textField.textColor = .black
+        textField.placeholder = " Change status"
+
+        return textField
+    }()
 
     @objc func pressButton() {
 
-        print("Helo")
-        
+        statusLabel.text = statusText
+    }
+
+    @objc func pressTextField(_ textField: UITextField) {
+
+        guard let text = textField.text else { return }
+        statusText = text
+
+    }
+
+    private func setupView() {
+        addSubview(userImage)
+        addSubview(userLabel)
+        addSubview(statusLabel)
+        addSubview(showButton)
+        addSubview(statusTextField)
     }
 
 
-    func setAllConstreints() {
+    private func setAllConstreints() {
 
-        [userImage,userLabel,showButton,statusLabel].forEach(self.addSubview(_:))
-
-        userImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        userImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
-        userImage.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        userImage.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        userImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        userImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16).isActive = true
+        userImage.widthAnchor.constraint(equalToConstant: 130).isActive = true
+        userImage.heightAnchor.constraint(equalToConstant: 130).isActive = true
 
 
-        userLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 27).isActive = true
+        userLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27).isActive = true
         userLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 35).isActive = true
-        userLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
+        userLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
 
         statusLabel.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 35).isActive = true
-        statusLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
-        statusLabel.topAnchor.constraint(equalTo: userLabel.bottomAnchor, constant: 39).isActive = true
-
-
-
+        statusLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        statusLabel.topAnchor.constraint(equalTo: userLabel.bottomAnchor, constant: 35).isActive = true
 
         showButton.topAnchor.constraint(equalTo: userImage.bottomAnchor, constant: 16).isActive = true
         showButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        //showButton.widthAnchor.constraint(equalToConstant: 500).isActive = true
-        showButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 76).isActive = true
-        showButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
+        showButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        showButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
 
 
+        statusTextField.topAnchor.constraint(equalTo: statusLabel.bottomAnchor, constant: 10).isActive = true
+        statusTextField.leadingAnchor.constraint(equalTo: userImage.trailingAnchor, constant: 35).isActive = true
+        statusTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+        statusTextField.heightAnchor.constraint(equalToConstant: 40).isActive = true
 
     }
-
-
 }
