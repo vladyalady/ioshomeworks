@@ -11,10 +11,60 @@ class FeedViewController: UIViewController {
 
     var post = Post(title: "Russian News Today")
 
+    private let stackView: UIStackView = {
+
+        let stack = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.distribution = .fillProportionally
+        stack.spacing = 10
+
+        return stack
+    }()
+
+    private let firstButton: UIButton = {
+
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(" Оч крутая домашка ", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemBlue
+        button.layer.cornerRadius = 20
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 0.7
+        button.layer.shadowOffset.height = 4
+        button.layer.shadowOffset.width = 4
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+
+        return button
+    }()
+
+
+    private let secondButton: UIButton = {
+
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle(" Оч крутая домашка ", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemPink
+        button.layer.cornerRadius = 20
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowRadius = 4
+        button.layer.shadowOpacity = 0.7
+        button.layer.shadowOffset.height = 4
+        button.layer.shadowOffset.width = 4
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
+        return button
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemMint
-        addPostButton()
+        layout()
     }
 
 
@@ -25,38 +75,19 @@ class FeedViewController: UIViewController {
 
     }
 
-    private func addPostButton() {
+    private func layout() {
+        view.addSubview(stackView)
+        stackView.addArrangedSubview(firstButton)
+        stackView.addArrangedSubview(secondButton)
 
-        let postButton = UIButton()
-        postButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
 
-        postButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        postButton.setTitle("Check post", for: .normal)
-        postButton.setTitleColor(.white, for: .normal)
-        postButton.backgroundColor = .systemPink
-        postButton.layer.cornerRadius = 20
-        postButton.layer.cornerRadius = 14
-        postButton.layer.shadowColor = UIColor.black.cgColor
-        postButton.layer.shadowRadius = 4
-        postButton.layer.shadowOpacity = 0.7
-        postButton.layer.shadowOffset.height = 4
-        postButton.layer.shadowOffset.width = 4
-
-
-        view.addSubview(postButton)
-
-
-
-        let horizontalCenter = NSLayoutConstraint(item: postButton, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0)
-
-        let verticalCenter = NSLayoutConstraint(item: postButton, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 0)
-
-        let width = NSLayoutConstraint(item: postButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .width, multiplier: 1.0, constant: 100)
-
-        let height = NSLayoutConstraint(item: postButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .height, multiplier: 1.0, constant: 50)
-
-        let constraints: [NSLayoutConstraint] = [horizontalCenter, verticalCenter, width, height]
-
-        NSLayoutConstraint.activate(constraints)
+        NSLayoutConstraint.activate([
+            firstButton.heightAnchor.constraint(equalToConstant: 50),
+            secondButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 }
