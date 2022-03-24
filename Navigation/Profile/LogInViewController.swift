@@ -15,7 +15,7 @@ class LogInViewController: UIViewController {
 
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .yellow
+        scrollView.backgroundColor = .white
 
         return scrollView
     }()
@@ -102,7 +102,6 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .red
         self.navigationController?.navigationBar.isHidden = true
         layout()
 
@@ -139,9 +138,18 @@ class LogInViewController: UIViewController {
         scrollView.verticalScrollIndicatorInsets = .zero
     }
 
-    @objc func buttonTapped(_ sender: UIButton) {
+    @objc private func buttonTapped(_ sender: UIButton) {
+        setStateButton(sender)
         let profileVC = ProfileViewController()
         navigationController?.pushViewController(profileVC, animated: true)
+    }
+
+    private func setStateButton(_ sender: UIButton) {
+        if sender.isSelected || sender.isHighlighted {
+            sender.alpha = 0.8
+        } else {
+            sender.alpha = 1
+        }
     }
 
 
