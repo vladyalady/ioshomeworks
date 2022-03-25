@@ -9,7 +9,7 @@ import UIKit
 
 class FeedViewController: UIViewController {
 
-    var post = Post(title: "Russian News Today")
+//    var post = Post(title: "Russian News Today")
 
     private let stackView: UIStackView = {
 
@@ -70,7 +70,7 @@ class FeedViewController: UIViewController {
 
     @objc func buttonTapped() {
         let postVC = PostViewController()
-        postVC.newPost = post
+//        postVC.newPost = post
         navigationController?.pushViewController(postVC, animated: true)
 
     }
