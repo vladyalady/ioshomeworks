@@ -105,6 +105,7 @@ class ProfileHeaderView: UIView {
     }
 
     private func setupView() {
+        backgroundColor = .systemGray5
         addSubview(userImage)
         addSubview(userLabel)
         addSubview(statusLabel)

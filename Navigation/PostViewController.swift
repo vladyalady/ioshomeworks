@@ -15,7 +15,7 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemGray4
-        title = newPost?.title
+//        title = newPost?.title
 
         addTabBarButton()
     }

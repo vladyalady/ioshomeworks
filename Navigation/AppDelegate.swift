@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let feedNavControl = UINavigationController(rootViewController: feedVC)
         feedVC.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "star"), tag: 0)
 
-        let profileVC = ProfileViewController()
+        let profileVC = LogInViewController()
         let profileNavControl = UINavigationController(rootViewController: profileVC)
         profileVC.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person"), tag: 1)
 
