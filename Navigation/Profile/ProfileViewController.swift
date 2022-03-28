@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
+        tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identidier)
 
         return tableView
     }()
@@ -51,7 +51,7 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let post = posts[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing:PostTableViewCell.identifier), for: indexPath) as! PostTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing:PostTableViewCell.identidier), for: indexPath) as! PostTableViewCell
         cell.setupVC(model: post)
 
         return cell
