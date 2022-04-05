@@ -94,18 +94,21 @@ class ProfileHeaderView: UIView {
 
     @objc func pressButton() {
 
+        if statusTextField.text != nil {
         statusLabel.text = statusText
+        } else {
+            statusTextField.text = ""
+        }
     }
 
     @objc func pressTextField(_ textField: UITextField) {
-
+        
         guard let text = textField.text else { return }
         statusText = text
 
     }
 
     private func setupView() {
-        backgroundColor = .systemGray5
         addSubview(userImage)
         addSubview(userLabel)
         addSubview(statusLabel)

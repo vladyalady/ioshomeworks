@@ -15,7 +15,7 @@ class LogInViewController: UIViewController {
 
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .white
+
 
         return scrollView
     }()
@@ -24,7 +24,6 @@ class LogInViewController: UIViewController {
 
         let content = UIView()
         content.translatesAutoresizingMaskIntoConstraints = false
-        content.backgroundColor = .white
 
         return content
     }()
@@ -44,11 +43,12 @@ class LogInViewController: UIViewController {
     }()
 
     private let logoImageView: UIImageView = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.image = UIImage(named: "logo")
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "logo")
 
-        return $0
-    }(UIImageView())
+        return image
+    }()
 
     private lazy var textField1: UITextField = {
 
@@ -101,7 +101,7 @@ class LogInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .white
         self.navigationController?.navigationBar.isHidden = true
         layout()
 
@@ -166,7 +166,7 @@ class LogInViewController: UIViewController {
 
         scrollView.addSubview(contentView)
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
