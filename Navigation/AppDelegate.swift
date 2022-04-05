@@ -32,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         tabBarController.viewControllers = [feedNavControl, profileNavControl]
 
+        let photoVC = PhotosViewController()
+        let photoNAvControl = UINavigationController(rootViewController: photoVC)
+
         return true
     }
 }
